@@ -143,6 +143,9 @@ body {
     .version-bedrock.port {
         display: none;
     }
+    .version-bedrock.ip {
+        display: none;
+    }
 }
 
 /* Small screens */
