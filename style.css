@@ -1,0 +1,166 @@
+
+/* Color variables */
+:root {
+    --background: #0b1018;
+    --surface: #141d29;
+    --surface-hover: #1b2939;
+    --border: #28384a;
+
+    --text: #e8edf4;
+    --text-muted: #91a0b3;
+
+    --accent-red: #d94b50;
+    --accent-blue: #4285c5;
+}
+
+/* Base styling */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 24px;
+    background: var(--background);
+    color: var(--text);
+    font-family: Arial, sans-serif;
+}
+
+/* Navigation */
+.nav {
+    max-width: 1200px;
+    margin: 0 auto 24px;
+}
+
+.nav ul {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+    padding: 0;
+}
+
+.nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+}
+
+.nav a:hover {
+    color: var(--text);
+}
+
+/* Cards */
+.card {
+    max-width: 1200px;
+    margin: 0 auto 20px;
+    padding: 24px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+}
+
+/* Title */
+.title {
+    text-align: center;
+    padding: 50px 24px;
+}
+
+.title h1 {
+    margin: 0;
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    letter-spacing: 0.15em;
+}
+
+/* Map */
+.map {
+    padding: 0;
+    overflow: hidden;
+}
+
+.map img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* Width */
+.w100 {
+    width: 100%;
+}
+
+/* Server information */
+.info {
+    max-width: 1200px;
+    margin: 0 auto 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.info button {
+    flex: 1;
+    min-width: 180px;
+    padding: 14px;
+    color: var(--text);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
+.info button:hover {
+    background: var(--surface-hover);
+    border-color: var(--accent-blue);
+}
+
+/* Sections */
+.section {
+    padding: 28px;
+}
+
+.section h2 {
+    margin: 0;
+    font-size: 1.4rem;
+}
+
+/* Display-specific server buttons */
+
+/* Desktop */
+.version-java,
+.version-bedrock {
+    display: block;
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+    .version-java {
+        display: none;
+    }
+}
+
+/* Hide Bedrock port on desktop */
+@media (min-width: 768px) {
+    .version-bedrock.port {
+        display: none;
+    }
+}
+
+/* Small screens */
+@media (max-width: 600px) {
+    body {
+        padding: 12px;
+    }
+
+    .nav ul {
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .info {
+        flex-direction: column;
+    }
+
+    .info button {
+        width: 100%;
+    }
+}
