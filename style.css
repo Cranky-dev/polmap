@@ -1,4 +1,9 @@
 
+/* =================================
+   POLMAP STYLESHEET
+   Author: Cranky_dev
+   ================================= */
+
 /* Color variables */
 :root {
     --background: #0b1018;
@@ -34,6 +39,7 @@ body {
 
 .nav ul {
     display: flex;
+    align-items: center;
     gap: 28px;
     list-style: none;
     padding: 0;
@@ -42,6 +48,7 @@ body {
 .nav a {
     color: var(--text-muted);
     text-decoration: none;
+    transition: color 0.2s ease;
 }
 
 .nav a:hover {
@@ -67,6 +74,7 @@ body {
 .title h1 {
     margin: 0;
     font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: 900;
     letter-spacing: 0.15em;
 }
 
@@ -87,13 +95,13 @@ body {
     width: 100%;
 }
 
-
 /* Server information */
 .info {
     max-width: 1200px;
     margin: 0 auto 20px;
+
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 12px;
 }
 
@@ -101,12 +109,17 @@ body {
     width: 100%;
     min-width: 0;
     padding: 14px;
+
     color: var(--text);
     background: var(--surface);
+
     border: 1px solid var(--border);
     border-radius: 8px;
+
     font-size: 0.95rem;
     cursor: pointer;
+
+    transition: background 0.2s ease, border-color 0.2s ease;
 }
 
 .info button:hover {
@@ -114,36 +127,30 @@ body {
     border-color: var(--accent-blue);
 }
 
-/* Java occupies the entire first row */
+/* Java IP occupies the entire first row */
 .version-java {
     grid-column: 1 / -1;
 }
 
-/* Desktop visibility */
+/* Desktop button visibility */
 .version-java,
-.version-bedrock.ip {
-    display: block;
-}
-
+.version-bedrock.ip,
 .version-bedrock.port {
     display: block;
 }
 
-/* Mobile visibility */
-@media (max-width: 767px) {
-    .version-java {
-        display: none;
-    }
-
-    .version-bedrock.ip,
-    .version-bedrock.port {
-        display: block;
-    }
+/* Sections */
+.section {
+    padding: 28px;
 }
 
+.section h2 {
+    margin: 0;
+    font-size: 1.4rem;
+}
 
-/* Small screens */
-@media (max-width: 600px) {
+/* Mobile layout */
+@media (max-width: 767px) {
     body {
         padding: 12px;
     }
@@ -153,11 +160,38 @@ body {
         gap: 20px;
     }
 
-    .info {
-        flex-direction: column;
+    /* Hide Java IP */
+    .version-java {
+        display: none;
+    }
+
+    /* Keep Bedrock buttons side by side */
+    .version-bedrock.ip,
+    .version-bedrock.port {
+        display: block;
+    }
+}
+
+/* Small screens */
+@media (max-width: 400px) {
+    .title {
+        padding: 35px 16px;
+    }
+
+    .title h1 {
+        letter-spacing: 0.1em;
+    }
+
+    .section {
+        padding: 20px;
+    }
+
+    .section h2 {
+        font-size: 1.15rem;
     }
 
     .info button {
-        width: 100%;
+        padding: 12px 8px;
+        font-size: 0.85rem;
     }
 }
