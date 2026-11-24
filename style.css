@@ -87,18 +87,19 @@ body {
     width: 100%;
 }
 
+
 /* Server information */
 .info {
     max-width: 1200px;
     margin: 0 auto 20px;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 12px;
 }
 
 .info button {
-    flex: 1;
-    min-width: 180px;
+    width: 100%;
+    min-width: 0;
     padding: 14px;
     color: var(--text);
     background: var(--surface);
@@ -113,40 +114,33 @@ body {
     border-color: var(--accent-blue);
 }
 
-/* Sections */
-.section {
-    padding: 28px;
+/* Java occupies the entire first row */
+.version-java {
+    grid-column: 1 / -1;
 }
 
-.section h2 {
-    margin: 0;
-    font-size: 1.4rem;
-}
-
-/* Display-specific server buttons */
-
-/* Desktop */
+/* Desktop visibility */
 .version-java,
-.version-bedrock {
+.version-bedrock.ip {
     display: block;
 }
 
-/* Mobile */
+.version-bedrock.port {
+    display: block;
+}
+
+/* Mobile visibility */
 @media (max-width: 767px) {
     .version-java {
         display: none;
     }
+
+    .version-bedrock.ip,
+    .version-bedrock.port {
+        display: block;
+    }
 }
 
-/* Hide Bedrock port on desktop */
-@media (min-width: 768px) {
-    .version-bedrock.port {
-        display: none;
-    }
-    .version-bedrock.ip {
-        display: none;
-    }
-}
 
 /* Small screens */
 @media (max-width: 600px) {
